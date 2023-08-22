@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+
+{% block title %}contact{% endblock title %}
+
+{% block content %}
+<div class="container border">
+<h1>Welcome to my contact page</h1>
+</div>
+<div class="container border my-2">
+    <div class="main-block">
+    
+        <div class="left-part">
+          <i class="fas fa-envelope"></i>
+          <i class="fas fa-at"></i>
+          <i class="fas fa-mail-bulk"></i>
+        </div>
+        
+          <form>
+            <h1 class="text-center">Contact Us</h1>
+            <form method="post", action="/contact">
+              {% csrf_token %}
+            <div class="mb-3">
+              <label for="FullName" class="form-label">FullName:</label>
+              <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name...">
+              
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email:</label>
+              <input type="email" class="form-control" id="email" name="email" placeholder="Enter you email...">
+            </div>
+            <div class="mb-3">
+              <label for="Phone" class="form-label">Phone Number:</label>
+              <input type="number" class="form-control" id="phone" name="phone" placeholder="Enter your 10 digit mobile number..." aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3 form-check">
+              <label class="form-check-label" for="exampleCheck1">Check me out:</label>
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              
+              <div id="emailHelp" class="form-text">We'll never share your details with anyone else.</div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+</div>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<title>Toggle Password Visibility</title>
+	<link rel="stylesheet" href=
+"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+	<link rel="stylesheet" href=
+"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity=
+"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+		crossorigin="anonymous">
+
+	<style>
+		form i {
+			margin-left: -30px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container border">
+		<h1>Sign In</h1>
+		<form>
+			<p>
+				<label>Username:</label>
+				<input type="text"
+					name="userID" id="userID">
+			</p>
+
+			<p>
+				<label>Password:</label>
+				<input type="password"
+					name="password" id="password" />
+				<i class="bi bi-eye-slash"
+					id="togglePassword"></i>
+			</p>
+
+			<button type="submit" id="submit"
+				class="btn btn-primary">
+				Log In
+			</button>
+		</form>
+	</div>
+
+	<script>
+		const togglePassword = document
+			.querySelector('#togglePassword');
+
+		const password = document.querySelector('#password');
+
+		togglePassword.addEventListener('click', () => {
+
+			// Toggle the type attribute using
+			// getAttribure() method
+			const type = password
+				.getAttribute('type') === 'password' ?
+				'text' : 'password';
+				
+			password.setAttribute('type', type);
+
+			// Toggle the eye and bi-eye icon
+			this.classList.toggle('bi-eye');
+		});
+	</script>
+</body>
+
+</html>
+
+{% endblock content %}
